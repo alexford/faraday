@@ -8,6 +8,13 @@ module Faraday
     end
 
     # Public
+    def dup
+      self.class.from(self)
+    end
+
+    alias clone dup
+
+    # Public
     def each
       return to_enum(:each) unless block_given?
       members.each do |key|

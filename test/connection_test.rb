@@ -458,6 +458,8 @@ class TestConnection < Faraday::TestCase
     other.options.timeout = 1
 
     assert_equal 10, Faraday.default_connection_options.request.timeout
+    assert_equal 10, conn.options.timeout
+    assert_equal 1, other.options.timeout
   end
 
   def env_url(url, params)
